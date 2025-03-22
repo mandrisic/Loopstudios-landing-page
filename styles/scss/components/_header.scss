@@ -119,6 +119,7 @@ header {
         &__list {
             align-self: flex-start;
             margin-top: 40%;
+            z-index: 2;
 
             @include respond('tablet'){
                 @include flexTemplate(row, flex-end, center);
@@ -143,7 +144,6 @@ header {
                 font-weight: 300;
                 text-transform: uppercase;
                 padding: .5em 0;
-                z-index: 2;
                 a {
                     color: $white;
                     position: relative;
@@ -194,7 +194,7 @@ header {
         }
 
        @include respond('desktop'){
-            width: 57%;
+            width: 58%;
             margin-top: 10em;
         }
     }
@@ -216,6 +216,7 @@ header {
 
         @include respond('desktop'){
             font-size: 7rem;  
+            padding: .5em .6em;
         };
     }
 }

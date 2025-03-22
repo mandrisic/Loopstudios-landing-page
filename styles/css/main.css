@@ -366,6 +366,7 @@ header .nav__menu-close {
 header .nav__list {
   align-self: flex-start;
   margin-top: 40%;
+  z-index: 2;
 }
 @media (min-width: 48em) {
   header .nav__list {
@@ -400,7 +401,6 @@ header .nav__list li {
   font-weight: 300;
   text-transform: uppercase;
   padding: 0.5em 0;
-  z-index: 2;
 }
 header .nav__list li a {
   color: hsl(0, 0%, 100%);
@@ -454,7 +454,7 @@ header .heading {
 }
 @media (min-width: 90em) {
   header .heading {
-    width: 57%;
+    width: 58%;
     margin-top: 10em;
   }
 }
@@ -478,6 +478,7 @@ header h1 {
 @media (min-width: 90em) {
   header h1 {
     font-size: 7rem;
+    padding: 0.5em 0.6em;
   }
 }
 
