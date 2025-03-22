@@ -1,0 +1,221 @@
+@use '../global/variables' as *;
+@use '../global/mixins' as *;
+
+header {
+    position: relative;
+    @include flexTemplate(column, center, center);
+    background-image: url('../../images/mobile/image-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 96vh;
+    padding: 2.5em;
+    overflow: hidden;
+    @include respond('tablet'){
+        @include flexTemplate(column, center, flex-start);
+        background-image: url('../../images/desktop/image-hero.jpg');
+        width: 100%;
+        height: 50vh;
+        padding: 10em;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: background .3s;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    };
+
+    @include respond('laptop'){
+        height: 72vh;
+    }
+
+    @include respond('desktop'){
+        padding: 14em;
+    }
+
+    .nav {
+        @include flexTemplate(row, space-between, center);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 4em 3em;
+        @include respond('tablet', 'laptop'){
+            padding: 6em 10em;
+        }
+
+        @include respond('laptop'){
+            padding: 4em 10em;
+        }
+
+        @include respond('desktop'){
+            padding: 6em 14em;
+        }
+
+        &__logo {
+            height: 2.5em;
+            z-index: 200;
+            @include respond('tablet'){
+                height: 4em;
+            }
+
+            @include respond('laptop'){
+                height: 3em;
+            }
+
+            @include respond('desktop'){
+                height: 4em;
+            }
+        }
+
+        &__hamburger {
+            cursor: pointer;
+            @include respond('tablet', 'laptop', 'desktop'){
+                display: none;
+            };
+        }
+
+        &__menu {
+            @include flexTemplate(column, flex-start, flex-end);
+            gap: 4em;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            background-color: $black;
+            width: 100%;
+            height: 100vh;
+            padding: 4em 3em;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            @include respond('tablet', 'laptop', 'desktop'){
+                position: relative;
+                @include flexTemplate(row, space-between, center);
+                background-color: transparent;
+                transform: translateX(0);
+                opacity: 1;
+                height: 1em;
+                padding: 0;
+            };
+
+            &.active {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+
+            &-close {
+                width: 2em;
+                @include respond('tablet', 'laptop', 'desktop'){
+                    display: none;
+                };
+            }
+        }
+
+        &__list {
+            align-self: flex-start;
+            margin-top: 40%;
+
+            @include respond('tablet'){
+                @include flexTemplate(row, flex-end, center);
+                gap: 1.5em;
+                align-self: center;
+                margin: 0;
+                height: auto;
+                width: 100%;
+                flex-direction: row;
+                transform: translateX(0%);
+                opacity: 1;
+                z-index: 800;
+            }
+
+            @include respond('laptop', 'desktop'){
+                gap: 3em;
+            };
+
+            li {
+                font-size: 2.4rem;
+                font-family: $heading;
+                font-weight: 300;
+                text-transform: uppercase;
+                padding: .5em 0;
+                z-index: 2;
+                a {
+                    color: $white;
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        bottom: -.6em;
+                        width: 40%;
+                        height: .1em;
+                        background-color: $white;
+                        transform: scaleX(0) translateX(100%);
+                        transition: transform .3s ease-in-out;
+                    }
+            
+                    &:hover::after {
+                        transform: scaleX(1) translateX(-50%);
+                    }
+                }
+                @include respond('tablet'){
+                    text-transform: none;
+                    font-size: 1.8rem;
+                };
+
+                @include respond('laptop'){
+                    font-size: 1.6rem;
+                };
+
+                @include respond('desktop'){
+                    font-size: 1.8rem;
+                };
+            }
+        }
+    }
+
+    .heading {
+        border: .2em solid $white;
+        @include respond('tablet'){
+            width: 100%;
+            margin-top: 10em;
+            z-index: 2;
+        }
+
+        @include respond('laptop'){
+            width: 52%;
+            margin-top: 7em;
+        }
+
+       @include respond('desktop'){
+            width: 57%;
+            margin-top: 10em;
+        }
+    }
+
+    h1 {
+        color: $white;
+        font-size: 3.9rem;
+        font-weight: 300;
+        padding: .5em .6em;
+
+        @include respond('tablet'){
+            font-size: 6rem;  
+        };
+
+        @include respond('laptop'){
+            font-size: 4rem;  
+            padding-right: 2em;
+        };
+
+        @include respond('desktop'){
+            font-size: 7rem;  
+        };
+    }
+}

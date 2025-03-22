@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+//FONTS
+$heading: 'Josefin Sans';
+$text: 'Alata';
+
+// COLORS
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$dark-gray: hsl(0, 0%, 55%);
+$very-dark-gray: hsl(0, 0%, 41%);
+$lilac: hsl(300, 28%, 69%);
+
+
+// BREAKPOINTS
+$breakpoints: (
+  "small": 20em,        // 320px
+  "tablet": 48em,       // 768px
+  "laptop": 64em,       // 1024px
+  "desktop": 90em       // 1440px
+);
